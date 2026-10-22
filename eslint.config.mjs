@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import prettierConfig from "eslint-config-prettier/flat";
 
 const TYPESCRIPT_FILES = ["**/*.{ts,tsx,mts}"];
 
@@ -26,6 +27,7 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/consistent-type-imports": "error",
     },
   },
+  prettierConfig,
   globalIgnores([
     ".next/**",
     "out/**",
