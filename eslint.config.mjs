@@ -5,6 +5,25 @@ import prettierConfig from "eslint-config-prettier/flat";
 
 const TYPESCRIPT_FILES = ["**/*.{ts,tsx,mts}"];
 
+const DOMAIN_FILES = ["src/domain/**"];
+const DOMAIN_FORBIDDEN_IMPORTS = [
+  "react",
+  "react-dom",
+  "next",
+  "next/*",
+  "dexie",
+  "@/app/*",
+  "@/components/*",
+  "@/data/*",
+  "@/features/*",
+  "**/app/**",
+  "**/components/**",
+  "**/data/**",
+  "**/features/**",
+];
+const DOMAIN_IMPORT_MESSAGE =
+  "The domain layer must stay pure: no React, Next.js, UI or data-access imports.";
+
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
@@ -25,6 +44,22 @@ const eslintConfig = defineConfig([
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/no-misused-promises": "error",
       "@typescript-eslint/consistent-type-imports": "error",
+    },
+  },
+  {
+    files: DOMAIN_FILES,
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: DOMAIN_FORBIDDEN_IMPORTS,
+              message: DOMAIN_IMPORT_MESSAGE,
+            },
+          ],
+        },
+      ],
     },
   },
   prettierConfig,
