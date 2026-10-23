@@ -1,6 +1,7 @@
 {
   "js/ts.tsdk.path": "node_modules/typescript/lib",
   "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "[typescript]": {
