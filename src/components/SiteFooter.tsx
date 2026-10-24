@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container";
+import { ExternalLink } from "@/components/ExternalLink";
 import { footerContent } from "@/constants/footerContent";
 
 export function SiteFooter() {
@@ -10,12 +11,12 @@ export function SiteFooter() {
           <ul className="flex gap-4">
             {footerContent.links.map((link) => (
               <li key={link.href}>
-                <a
+                <ExternalLink
                   href={link.href}
                   className="underline-offset-4 hover:text-foreground hover:underline"
                 >
                   {link.label}
-                </a>
+                </ExternalLink>
               </li>
             ))}
           </ul>

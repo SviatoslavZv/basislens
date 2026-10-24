@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container";
+import { ExternalLink } from "@/components/ExternalLink";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Button } from "@/components/ui/button";
@@ -22,9 +23,9 @@ export default function HomePage() {
           </p>
           <p className="text-sm text-muted-foreground">{homeContent.status}</p>
           <Button asChild size="lg">
-            <a href={siteConfig.links.repository}>
+            <ExternalLink href={siteConfig.links.repository}>
               {homeContent.primaryAction}
-            </a>
+            </ExternalLink>
           </Button>
         </Container>
       </main>
