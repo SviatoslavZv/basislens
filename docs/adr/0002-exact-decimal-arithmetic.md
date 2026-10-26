@@ -23,7 +23,9 @@ All money and quantity math uses big.js:
 - strict mode is on, so values are created from strings only, never from
   `number`;
 - addition, subtraction and multiplication are exact; only division rounds,
-  with a fixed number of decimal places and a fixed rounding mode;
+  to 30 decimal places with round-half-even;
+- `toString()` always uses plain notation, so one satoshi is stored as
+  `"0.00000001"`, not `"1e-8"`;
 - values are stored as strings in IndexedDB and JSON and rounded only for
   display.
 
